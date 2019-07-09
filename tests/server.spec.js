@@ -37,4 +37,14 @@ describe('server/app.js', function() {
       done();
     });
   });
+
+it('page should have a subtitle', (done) => {
+  chai.request(server)
+    .get('/')
+    .end((err, res) => {
+      expect(err).not.exist;
+      expect(JSON.stringify(res.text)).to.contain('DK says Trans Rights');
+      done();
+    });
+  });
 })
